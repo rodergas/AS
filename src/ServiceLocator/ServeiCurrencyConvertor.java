@@ -12,7 +12,7 @@ import DomainModel.Moneda;
  * @author rober_000
  */
 public class ServeiCurrencyConvertor extends Servei{
-    //Ens retorna el ratio de EUR a USD o GBP
+    //Ens retorna el ratio de "EUR" a "USD" o "GBP"
     public double conversionRate(Moneda divisa, String moneda){
         String euro = divisa.toString();
         
