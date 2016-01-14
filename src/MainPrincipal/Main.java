@@ -27,8 +27,10 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+    /* Si no està creada la base de dades, la obrim i la inicialitzem, també mostrem
+    el primer frame
+    */
     public static void main(String[] args) throws ParseException {
-        // TODO code application logic here
         if(!inicialitzat()){
             BaseDeDatos bd = new BaseDeDatos();
             bd.inicializar();
@@ -36,11 +38,11 @@ public class Main {
         PrimeroFrame primeroframe = new PrimeroFrame();
         primeroframe.setVisible(true);
         CtrlVistaComprarEntrada CVCE = new CtrlVistaComprarEntrada();
-        //PrimeroFrame a = new PrimeroFrame();
-        //a.setVisible(true);
        
     }
-    
+    /*
+        Ens retorna true o false depenent si la base de dades està inicialitzada
+    */
     public static boolean inicialitzat(){
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
@@ -52,10 +54,6 @@ public class Main {
         int numero = ((Number) q.uniqueResult()).intValue();
         if (numero == 0) return false;
         else return true;
-        
-        //List<Espectacle> l = session.createQuery("from Espectacle").list();
-        //if (l.size()==0) return false;
-        //else return true;
         
     }
     

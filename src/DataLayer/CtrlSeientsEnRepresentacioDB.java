@@ -26,7 +26,10 @@ import org.hibernate.cfg.Configuration;
  * @author MacBookProAlvaro
  */
 public class CtrlSeientsEnRepresentacioDB implements CtrlSeientsEnRepresentacio {
-
+    /*
+    S'accedeix a la base de dades i s'obté el SeientEnRepresentacio
+    identifict per la fila "fila", columna "columna, local "nomLocalE" i sessio "sessioE"
+    */
     @Override
     public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomLocalE, String sessioE) {
         Configuration config = new Configuration();

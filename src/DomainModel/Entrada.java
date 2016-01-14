@@ -57,9 +57,9 @@ public class Entrada {
         for(int i = 0; i < AuxSer.size(); ++i){
             SeientEnRepresentacio ii = AuxSer.get(i);
             for(int j = 0; j < this.SER.size();++j){
-                System.out.println(EntradaSer.size());
+                //System.out.println(EntradaSer.size());
                 SeientEnRepresentacio jj = EntradaSer.get(j);
-                System.out.println(ii.getCKSER().getSeient().getCKS().getFila() +" " + jj.getCKSER().getSeient().getCKS().getFila());
+                //System.out.println(ii.getCKSER().getSeient().getCKS().getFila() +" " + jj.getCKSER().getSeient().getCKS().getFila());
                 
                   if(ii.getCKSER().getSeient().getCKS().getFila().equals(jj.getCKSER().getSeient().getCKS().getFila()) && ii.getCKSER().getSeient().getCKS().getColumna().equals(jj.getCKSER().getSeient().getCKS().getColumna())
                           && ii.getCKSER().getRepresentacio().getCKR().getLocal().getNom().equals(jj.getCKSER().getRepresentacio().getCKR().getLocal().getNom()) && ii.getCKSER().getRepresentacio().getCKR().getSessio().getSessio().toString().equals(jj.getCKSER().getRepresentacio().getCKR().getSessio().getSessio().toString())){  

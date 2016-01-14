@@ -7,6 +7,7 @@ package Frames;
 
 import PresentationLayer.CtrlVistaComprarEntrada;
 import DomainModel.StructFilaColumna;
+import Excepcions.seientsNoCoincideixen;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,15 +18,13 @@ import javax.swing.JButton;
  */
 public class TriaSeientsFrame extends javax.swing.JFrame {
     private Integer[] estado;
-    private Integer nEsp;
     private Integer seleccionados = 0;
     /**
      * Creates new form TriaSeientsFrame
      */
-    public TriaSeientsFrame(ArrayList<StructFilaColumna> seients, Integer esp) {
+    public TriaSeientsFrame(ArrayList<StructFilaColumna> seients) {
         //initComponents();
         estado = new Integer[30];
-        nEsp = esp;
         for (int i = 0; i < estado.length; ++i) estado[i] = 5;
         for (int i = 0; i < seients.size(); ++i){
             int fila = seients.get(i).getFila();
@@ -1010,14 +1009,21 @@ public class TriaSeientsFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
+    Si es prem el botó "Cancel" s'acaba l'execució del programa
+    */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    /*
+    Quan es prem "Ok", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per obtenir el preu dels seients seleccionats i els tipus de canvis disponibles.
+    Si el nombre de seients seleccionats no correspon amb el nombre d'espectadors introduit anteriorment
+    es mostrarà un missatge d'error
+    */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(seleccionados == nEsp){
+        try{
             ArrayList<StructFilaColumna> seientsseleccionats = new ArrayList<>();
             for (int i = 0; i < estado.length; ++i){
                 if (estado[i] == 2){
@@ -1030,8 +1036,8 @@ public class TriaSeientsFrame extends javax.swing.JFrame {
             CtrlVistaComprarEntrada CCDCE = new CtrlVistaComprarEntrada();
             CCDCE.PrOkSeleccionarSeients(seientsseleccionats);
             this.dispose();
-        } else{
-            this.jTextArea2.setText("Els seients seleccionats no coincideixen amb el nombre d'espectadors introduït previament");
+        } catch(seientsNoCoincideixen e){
+            this.jTextArea2.setText(e.getMessage());
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed

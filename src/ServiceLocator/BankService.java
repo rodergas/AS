@@ -12,7 +12,7 @@ import java.util.Date;
  * @author rober_000
  */
 public class BankService extends Servei {
-    //Funció que autoritza o no el pagament, si no l'autoritza llença una exepció.
+    //Funció que autoritza o no el pagament
     public boolean autoritza(String dni, Integer codiB, String numCompte, float importe, Integer codiBancShows, String numCompteShows, Date data){
         double azar = Math.random();
         return (azar < 0.95);

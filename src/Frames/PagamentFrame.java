@@ -364,7 +364,7 @@ public class PagamentFrame extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -383,12 +383,18 @@ public class PagamentFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
+    Si es prem el botó "Cancel" s'acaba l'execució del programa
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+    Quan es prem "Ok", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per fer el pagament.
+    Si no s'han introduït bé les dades es mostrarà un missatge d'error.
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String dni = this.jTextField2.getText();
         int cb = 0;
@@ -428,7 +434,11 @@ public class PagamentFrame extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    /*
+    Quan es prem "Convertir", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per fer la conversió del preu.
+    Si no s'han introduït bé les dades es mostrarà un missatge d'error.
+    */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         String seleccionat = jList3.getSelectedValue();
         if(seleccionat != null){

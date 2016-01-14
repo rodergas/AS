@@ -14,6 +14,13 @@ import java.util.List;
  * @author MacBookProAlvaro
  */
 public interface CtrlEspectacle {
+    /*
+    Declaració de la capçalera de la funció getAll() que serà implementada pel CtrlEspectacleDB
+    */
     public List<Espectacle> getAll();
+    /*
+    Declaració de la capçalera de la funció getEspectacle(String titol) 
+    que serà implementada pel CtrlEspectacleDB
+    */
     public Espectacle getEspectacle (String titol);
 }

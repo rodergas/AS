@@ -13,5 +13,9 @@ import java.util.Date;
  * @author rober_000
  */
 public interface IBankServiceAdapter {
+    /*
+    Declaració de la capçalera de la funció pagament(String dni, Integer codiB, String numCompte, Float preuE, Integer cb, String nc, Date dAvui)
+    que serà implementada pel BankServiceAdapter
+    */
     public boolean pagament(String dni, Integer codiB, String numCompte, Float preuE, Integer cb, String nc, Date dAvui) throws serveiNoDisponible;
 }

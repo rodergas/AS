@@ -71,7 +71,9 @@ public class Espectacle {
     public void setRepresentacions(Collection<Representacio> representacions) {
         this.representacions = representacions;
     }
-    
+    /*
+    Retorna tota la informació(StructRepresentacio) de les representacions del espectacle, a la data "data".
+    */
     public ArrayList<StructRepresentacio> consRep(Date data) throws ParseException{
              
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

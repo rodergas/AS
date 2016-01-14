@@ -20,7 +20,9 @@ import org.hibernate.cfg.Configuration;
  * @author MacBookProAlvaro
  */
 public class CtrlEspectacleDB implements CtrlEspectacle{
-
+    /*
+    S'accedeix a la base de dades i s'obtenen tots els espectacles.
+    */
     @Override
     public List<Espectacle> getAll() {
         Configuration config = new Configuration();
@@ -38,6 +40,9 @@ public class CtrlEspectacleDB implements CtrlEspectacle{
         return l;
     }
 
+    /*
+    S'accedeix a la base de dades i s'obté l'espectacle amb titol "titol"
+    */
     @Override
     public Espectacle getEspectacle(String titol) {
                 Configuration config = new Configuration();

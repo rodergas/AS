@@ -81,7 +81,9 @@ public class FinalFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //S'accepta el pagament
+        /*
+    Quan es prem "Ok" s'acaba el cas d'us Comprar Entrada.
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         // TODO add your handling code here:

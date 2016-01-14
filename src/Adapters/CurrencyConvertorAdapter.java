@@ -16,7 +16,11 @@ import Excepcions.serveiNoDisponible;
  * @author rober_000
  */
 public class CurrencyConvertorAdapter implements ICurrencyConvertorAdapter {
-    
+    /*
+    El CurrencyConvertorAdapter cridarà al ServiceLocator el qual retornarà el
+    ServeiCurrencyConvertor i amb aquest servei s'obtindrà el ratio.
+    Si no s'ha aconseguit retornar el servei, és llençarà una excepció.
+    */
     @Override
     public double obtePreuMoneda(Moneda d, String moneda) throws serveiNoDisponible{
         ServiceLocator SL = ServiceLocator.getInstance();

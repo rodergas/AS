@@ -106,7 +106,11 @@ public class PrimeroFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
+    Quan es prem "Comprar Entrada", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per obtenir els espectacles.
+    Si no obté cap espectacle es mostrarà un missatge d'error
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             CtrlVistaComprarEntrada CCDCE = new CtrlVistaComprarEntrada();
@@ -118,7 +122,9 @@ public class PrimeroFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+/*
+    Si es prem el botó "Cancel" s'acaba l'execució del programa
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

@@ -34,9 +34,9 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
  * @author rober_000
  */
 public class BaseDeDatos {
-    
-    public BaseDeDatos(){}
-    
+    //Creadora buida
+    public BaseDeDatos(){}    
+    //S'introdueix la informació necessaria per executar el cas d'ús Comprar Entrada
     public void inicializar() throws ParseException{
         Configuration config = new Configuration();
         //config.addAnnotatedClass(Representacio.class);

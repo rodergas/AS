@@ -263,7 +263,12 @@ public class TriaEspectaculoFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
+    Quan es prem "Ok", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per obtenir les representacions amb de l'espectacle titol "titol"
+    i la data "data".
+    Si no obté cap representació es mostrarà un missatge d'error i si no s'han introduït bé les dades, també.
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String espectaculo = (String) jList1.getSelectedValue();
          if(espectaculo != null){
@@ -287,7 +292,9 @@ public class TriaEspectaculoFrame extends javax.swing.JFrame {
          }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+/*
+    Si es prem el botó "Cancel" s'acaba l'execució del programa
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
         // TODO add your handling code here:

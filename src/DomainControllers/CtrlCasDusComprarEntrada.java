@@ -22,6 +22,7 @@ import DomainModel.StructRepresentacio;
 import Excepcions.noHiHaEspectacles;
 import Excepcions.noHiHaRepresentacions;
 import Excepcions.pagamentNoAutoritzat;
+import Excepcions.seientsNoCoincideixen;
 import Excepcions.seientsNoDisp;
 import Excepcions.serveiNoDisponible;
 import java.text.ParseException;
@@ -49,13 +50,23 @@ public class CtrlCasDusComprarEntrada {
     private Integer nombEspectadorsE;
     private ArrayList<SeientEnRepresentacio> seientsE;
     private Float preuE;
+    /*
+    El CtrlCasDusComprarEntrada cridarà al CtrlCasDusConsultarRepresentacio el qual li haurà de 
+    retornar els titols dels espectacles que hi ha a la base de dades.
+    */
     public ArrayList<String> obteEspectacles()throws noHiHaEspectacles {
         FactoriaCtrlCasosDus FCCD = FactoriaCtrlCasosDus.getInstance();
         CtrlCasDusConsultarRepresentacio CCDCR = FCCD.getCtrlCasDusConsultarRepresentacio();
         ArrayList<String> titols = CCDCR.consultaEspectacles();
         return titols;
     }
-    
+    /*
+    El CtrlCasDusComprarEntrada cridarà al CtrlCasDusConsultarRepresentacio, el qual li haurà de 
+    retornar tota la informació(StructRepresentacio) de les representacions de l'espectacle 
+    amb titol "titol" a la data "data".
+    Si no en retorna cap, llença una excepció.
+    A més a més, es guardarà el titol del espectacle i la data.
+    */
     public ArrayList<StructRepresentacio> obteRepresentacions(String titol, Date data) throws ParseException, noHiHaRepresentacions {
         ArrayList<StructRepresentacio> representacions = new ArrayList<>();
         FactoriaCtrlCasosDus FCCD = FactoriaCtrlCasosDus.getInstance();
@@ -66,7 +77,11 @@ public class CtrlCasDusComprarEntrada {
         dataE = data;
         return representacions;
     }
-    
+    /*
+    El CtrlCasDusComprarEntrada cridarà al CtrlCasDusConsultarOcupacio, el qual li haurà de 
+    retornar la informació(StructFilaColuma) dels seients lliures per a la representació donada.
+    A més a més es guarda el nomLocal, la sessio i el nombre d'espectadors.
+    */
     public ArrayList<StructFilaColumna> obteOcupacio(String nomLocal, String sessio, Integer nombEspectadors) throws seientsNoDisp {
         FactoriaCtrlCasosDus FCCD = FactoriaCtrlCasosDus.getInstance();
         CtrlCasDusConsultarOcupacio CCDCO = FCCD.getCtrlCasDusConsultarOcupacio();
@@ -76,8 +91,14 @@ public class CtrlCasDusComprarEntrada {
         nombEspectadorsE = nombEspectadors;
         return seients;
     }
-    
-    public StructPreuCanvis seleccionarSeients(ArrayList<StructFilaColumna> seients){
+    /*
+        El CtrlCasDusComprarEntrada cridarà al CtrlSeientsEnRepresentacio,
+        el qual li haurà de retornar els seients de la representació escollida per l'usuari,
+        un cop fet això es calcularà el preu pels seients escollit per l'usuari i els canvis de moneda(StrucPreuCanvi)
+        A més a més es guardarà el preu calculat i els seients seleccionats per l'usuari.
+        Si els seients seleccionats no coincideixen amb el nombre d'espectadors introduït es llença una excepció.
+    */
+    public StructPreuCanvis seleccionarSeients(ArrayList<StructFilaColumna> seients) throws seientsNoCoincideixen{
         FactoriaCtrl FC = FactoriaCtrl.getInstance();
         CtrlSeientsEnRepresentacio CSER = FC.getCtrlSeientsEnRepresentacio();
         CtrlRepresentacio CR = FC.getCtrlRepresentacio();
@@ -87,6 +108,7 @@ public class CtrlCasDusComprarEntrada {
             conjser.add(CSER.getSeientEnRepresentacio(seients.get(i).getFila(), seients.get(i).getColumna(), nomLocalE, sessioE));
         }
         seientsE = new ArrayList<SeientEnRepresentacio>(conjser);
+        if(nombEspectadorsE != seientsE.size()) throw new seientsNoCoincideixen("Els seients seleccionats no coincideixen amb el nombre d'espectadors introduït previament");
         Representacio r = CR.getRepresentacio(nomLocalE, sessioE);
         boolean b = r.esEstrena();
         float p = r.getPreu();
@@ -108,7 +130,12 @@ public class CtrlCasDusComprarEntrada {
         preuCanvis.setCanvis(canvis);
         return preuCanvis;
     }
-    
+    /*
+        El CtrlCasDusComprarEntrada cridarà a la FactoriaAdaptadores per obtenir una instància d'aquesta
+        per obtenir l'interface "ICurrencyConvertorAdapter" el qual li haurà de retornar el ratio entre l'euro
+        i la moneda "moneda".
+        Un cop agafat el ratio, es calcularà el nou valor del preu.
+    */
     public float obtePreuMoneda(String moneda) throws serveiNoDisponible{
         Showscom showscom = Showscom.getInstance();
         Moneda d = showscom.getDivisa();
@@ -118,7 +145,12 @@ public class CtrlCasDusComprarEntrada {
         resultat = resultat * preuE;
         return resultat;
     }
-    
+    /*
+        El CtrlCasDusComprarEntrada cridarà a la FactoriaAdaptadores per obtenir una instància d'aquesta
+        per obtenir l'interface "IBankServiceAdapter" el qual ha de fer el pagament i si el pagament no està
+        autoritzat es llençarà una excepció.
+        Si el pagament s'ha relaitzat correctament, es crea una entrada i s'actualitza la base de dades amb el canvis fets.
+    */
     public void pagament(String dni, Integer codiB, String numCompte) throws pagamentNoAutoritzat, serveiNoDisponible{
         Showscom showscom = Showscom.getInstance();
         Integer cb = showscom.getCodiBanc();

@@ -24,7 +24,10 @@ import org.hibernate.cfg.Configuration;
  * @author MacBookProAlvaro
  */
 public class CtrlRepresentacioDB implements CtrlRepresentacio {
-
+    /*
+    S'accedeix a la base de dades i s'obté la representació
+    identificada per local "nomLocalE" i sessio "ses"
+    */
     @Override
     public Representacio getRepresentacio(String nomLocalE, String ses) {
          Configuration config = new Configuration();

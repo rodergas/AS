@@ -15,5 +15,9 @@ import java.util.ArrayList;
  * @author MacBookProAlvaro
  */
 public interface CtrlSeientsEnRepresentacio {
+        /*
+    Declaració de la capçalera de la funció getSeientEnRepresentacio(int fila, int columna, String nomLocalE, String sessioE)
+    que serà implementada pel CtrlSeientsEnRepresentacioDB
+    */
     public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomLocalE, String sessioE);
 }

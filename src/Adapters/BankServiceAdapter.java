@@ -15,6 +15,11 @@ import java.util.Date;
  * @author rober_000
  */
 public class BankServiceAdapter implements IBankServiceAdapter{
+    /*
+    El BankServiceAdapter cridarà al ServiceLocator el qual retornarà el
+    BankService i amb aquest servei es farà el pagament.
+    Si no s'ha aconseguit retornar el servei, és llençarà una excepció.
+    */
     public boolean pagament(String dni, Integer codiB, String numCompte, Float preuE, Integer cb, String nc, Date dAvui) throws serveiNoDisponible{
         ServiceLocator SL = ServiceLocator.getInstance();
         BankService BS = (BankService) SL.find("BankService");

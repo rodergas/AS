@@ -17,6 +17,11 @@ import java.util.ArrayList;
  * @author MacBookProAlvaro
  */
 public class CtrlCasDusConsultarOcupacio {
+    /*
+    El CtrlCasDusConsultarOcupacio cridarà al CtrlRepresentacio, el qual li haurà de 
+    retornar la informació(StructFilaColuma)de tots els seients lliures de la representació
+    identificado pel local "nomLocal" i sessio "sessio".
+    */
     public ArrayList<StructFilaColumna> consultaOcupacio(String nomLocal, String sessio, Integer nombEspectadors) throws seientsNoDisp {
         FactoriaCtrl FC = FactoriaCtrl.getInstance();
         CtrlRepresentacio CR = FC.getCtrlRepresentacio();

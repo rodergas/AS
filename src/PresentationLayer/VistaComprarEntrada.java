@@ -13,6 +13,7 @@ import Excepcions.noHiHaEspectacles;
 import DomainModel.StructFilaColumna;
 import DomainModel.StructPreuCanvis;
 import DomainModel.StructRepresentacio;
+import Excepcions.seientsNoCoincideixen;
 import java.awt.Frame;
 import java.util.ArrayList;
 import Frames.FinalFrame;
@@ -29,27 +30,27 @@ import javax.swing.SwingUtilities;
  */
 public class VistaComprarEntrada {
     //Mostra el frame TriaEspectaculoFrame
-    public void mostrarEspectacles (ArrayList<String> titolEsp) throws noHiHaEspectacles {
+    public void mostrarEspectacles (ArrayList<String> titolEsp) {
             new TriaEspectaculoFrame(titolEsp).setVisible(true);
     }
     //Mostra el frame LocalSessionFrame
-    public void mostrarRepresentacio (ArrayList<StructRepresentacio> representacions)throws noHiHaRepresentacions{
+    public void mostrarRepresentacio (ArrayList<StructRepresentacio> representacions){
                 new LocalSessionFrame(representacions).setVisible(true);
     }
     //Mostra el frame TriaSeientsFrame
-    public void mostrarSeients (ArrayList<StructFilaColumna> seients, Integer nEsp)throws seientsNoDisp{
-                new TriaSeientsFrame(seients, nEsp).setVisible(true);
+    public void mostrarSeients (ArrayList<StructFilaColumna> seients){
+                new TriaSeientsFrame(seients).setVisible(true);
     }
     //Mostra el frame PagamentFrame
     public void mostrarPreu (StructPreuCanvis SPC){
                 new PagamentFrame(SPC).setVisible(true);
     }
     //Mostra el frame PagamentFrame
-    public void mostrarCanvi (Float preu) throws serveiNoDisponible{
+    public void mostrarCanvi (Float preu){
                 new PagamentFrame(preu).setVisible(true);
     }
     //Mostra el frame FinalFrame
-    public void mostrarMissatgeFinal () throws serveiNoDisponible, pagamentNoAutoritzat{
+    public void mostrarMissatgeFinal (){
                 new FinalFrame().setVisible(true);
     }
 }

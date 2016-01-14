@@ -15,14 +15,14 @@ public class ServiceLocator {
     private static ServiceLocator instance;
     private ServeiCurrencyConvertor SCC;
     private BankService BS;
-    //Ens crea una instància de ServiceLocator
+     //S'obté una instancia de ServiceLocator i si no existeix, es crea i s'obté
     public static ServiceLocator getInstance() {
 	if (instance == null)
 		instance = new ServiceLocator();
 	return instance;
     }
     
-    //Ens retorna el servei "ServeiCurrencyConvertor" o "BankService" 
+    //Ens retorna el servei "ServeiCurrencyConvertor" o "BankService" o null si el servei no està disponible
     public Servei find(String name){
         double azar = Math.random();
         if(azar < 0.95){

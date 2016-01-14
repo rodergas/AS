@@ -250,12 +250,20 @@ public class LocalSessionFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
+    Si es prem el botó "Cancel" s'acaba l'execució del programa
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+    /*
+    Quan es prem "Ok", obtenim una instància del CtrlVistaComprarEntrada que aquest 
+    s'encargarà de cridar a domini per obtenir els seients lliures de la representació escollida amb el nombre 
+    d'espectadors introduït.
+    Si el nombre d'espectadors és més gran que eles seients disponibles
+    es mostrarà un missatge d'error i si no s'han introduït bé les dades, també.
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
     int nEspc = (Integer) jSpinner1.getValue();

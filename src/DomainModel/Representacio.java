@@ -149,7 +149,11 @@ public class Representacio {
     public boolean esEstrena(){
         return false;
     }
-    
+    /*
+    Es retorna la informació(StructFilaColuma)de tots els seients lliure de la representació.
+    Si el nombre d'espectadors que ha introduit el usuari es major que els seients lliures de la representacio
+    es llençarà una excepció.
+    */
     public ArrayList<StructFilaColumna> consOcup(int nEspc)throws seientsNoDisp{
         if(nEspc > this.nombreSeientsLliures) throw new seientsNoDisp("El nombre d'espectadors és més gran que el nombre de seients lliures");
         ArrayList<StructFilaColumna> FilaCol = new ArrayList<>();
