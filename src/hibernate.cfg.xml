@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgreselelelel</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping package="DomainModel"/>
+    <mapping package="Adapters"/>
+    <mapping package="DataInterface"/>
+    <mapping package="DataLayer"/>
+    <mapping package="DomainControllers"/>
+    <mapping package="PresentationLayer"/>
+    <mapping package="ServiceLocator"/>
+    <mapping class="DomainModel.CompoundKeyRepresentacio"/>
+    <mapping class="DomainModel.CompoundKeySeient"/>
+    <mapping class="DomainModel.CompoundKeySeientEnRepresentacio"/>
+    <mapping class="DomainModel.Entrada"/>
+    <mapping class="DomainModel.Espectacle"/>
+    <mapping class="DomainModel.Estat"/>
+    <mapping class="DomainModel.Estrena"/>
+    <mapping class="DomainModel.Local"/>
+    <mapping class="DomainModel.Moneda"/>
+    <mapping class="DomainModel.Representacio"/>
+    <mapping class="DomainModel.Seient"/>
+    <mapping class="DomainModel.SeientEnRepresentacio"/>
+    <mapping class="DomainModel.Sessio"/>
+    <mapping class="DomainModel.Showscom"/>
+    <mapping class="DomainModel.StructFilaColumna"/>
+    <mapping class="DomainModel.StructPreuCanvis"/>
+    <mapping class="DomainModel.StructRepresentacio"/>
+    <mapping class="DomainModel.TipusSessio"/>
+  </session-factory>
+</hibernate-configuration>
