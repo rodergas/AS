@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">ola376AR</property>
+    <property name="hibernate.connection.password">postgreselelelel</property>
     <property name="hibernate.show_sql">true</property>
     <mapping package="DomainModel"/>
     <mapping package="Adapters"/>
